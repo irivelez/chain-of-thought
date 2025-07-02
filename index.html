@@ -188,14 +188,20 @@
             margin: 15px 0;
         }
 
-        .image-placeholder {
-            background: #e2e8f0;
-            border: 2px dashed #a0aec0;
-            border-radius: 8px;
-            padding: 30px;
+        .results-chart {
             text-align: center;
-            margin: 15px 0;
-            color: #4a5568;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 10px;
+        }
+
+        .results-chart img {
+            transition: transform 0.3s ease;
+        }
+
+        .results-chart img:hover {
+            transform: scale(1.05);
         }
 
         .special-sections {
@@ -418,8 +424,14 @@
                             </ul>
                         </div>
                         
-                        <div class="image-placeholder">
-                            📊 [Graph showing performance across model sizes - Please provide Figure 4 screenshot]
+                        <div class="results-chart">
+                            <img src="https://irivelez.github.io/chain-of-thought/Figure4.png" 
+                                 alt="Chain-of-thought prompting performance across model sizes" 
+                                 style="width: 100%; max-width: 600px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                            <p style="text-align: center; margin-top: 10px; font-style: italic; color: #666;">
+                                Figure 4: Chain-of-thought prompting enables large language models to solve challenging math problems. 
+                                Performance is an emergent ability of increasing model scale.
+                            </p>
                         </div>
                         
                         <div class="error-analysis">
@@ -480,8 +492,13 @@
                             </ul>
                         </div>
                         
-                        <div class="image-placeholder">
-                            📊 [Graph showing commonsense reasoning results - Please provide Figure 7 screenshot]
+                        <div class="results-chart">
+                            <img src="https://irivelez.github.io/chain-of-thought/Figure%207.png" 
+                                 alt="Chain-of-thought prompting commonsense reasoning results" 
+                                 style="width: 100%; max-width: 600px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                            <p style="text-align: center; margin-top: 10px; font-style: italic; color: #666;">
+                                Figure 7: Chain-of-thought prompting improves commonsense reasoning abilities across different tasks and model scales.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -521,8 +538,13 @@
                             </ul>
                         </div>
                         
-                        <div class="image-placeholder">
-                            📊 [Graph showing symbolic reasoning and length generalization - Please provide Figure 8 screenshot]
+                        <div class="results-chart">
+                            <img src="https://irivelez.github.io/chain-of-thought/Figure%208.png" 
+                                 alt="Chain-of-thought prompting symbolic reasoning and length generalization" 
+                                 style="width: 100%; max-width: 600px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                            <p style="text-align: center; margin-top: 10px; font-style: italic; color: #666;">
+                                Figure 8: Chain-of-thought prompting facilitates generalization to longer sequences in symbolic reasoning tasks.
+                            </p>
                         </div>
                     </div>
                 </div>
