@@ -700,3 +700,110 @@
                             <ul>
                                 <li><strong>Semantic Complexity:</strong> Hard to translate directly into equations</li>
                                 <li><strong>Multi-step Nature:</strong> Benefits from intermediate reasoning</li>
+                                <li><strong>Error Accumulation:</strong> Standard prompting compounds mistakes</li>
+                                <li><strong>Reasoning Space:</strong> More computation allocated to harder problems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentActiveCard = null;
+        let hoverTimeout = null;
+
+        function showTaskDetails(taskType) {
+            // Clear any existing timeout
+            if (hoverTimeout) {
+                clearTimeout(hoverTimeout);
+            }
+
+            // Remove active class from all cards
+            document.querySelectorAll('.task-card').forEach(function(card) {
+                card.classList.remove('active');
+            });
+
+            // Add active class to current card
+            const currentCard = document.getElementById(taskType + '-card');
+            if (currentCard) {
+                currentCard.classList.add('active');
+            }
+
+            // Hide all detail sections
+            document.querySelectorAll('#details-container > div').forEach(function(detail) {
+                detail.style.display = 'none';
+            });
+
+            // Show current detail content
+            const detailContainer = document.getElementById('details-container');
+            const currentDetail = document.getElementById(taskType + '-details');
+            
+            if (currentDetail && detailContainer) {
+                currentDetail.style.display = 'block';
+                detailContainer.classList.add('show');
+            }
+            
+            currentActiveCard = taskType;
+        }
+
+        function hideTaskDetails() {
+            // Set timeout to hide details after a short delay
+            hoverTimeout = setTimeout(function() {
+                document.querySelectorAll('.task-card').forEach(function(card) {
+                    card.classList.remove('active');
+                });
+                
+                const detailContainer = document.getElementById('details-container');
+                if (detailContainer) {
+                    detailContainer.classList.remove('show');
+                }
+                
+                currentActiveCard = null;
+            }, 300);
+        }
+
+        function toggleSpecial(cardId) {
+            const details = document.getElementById(cardId + '-details');
+            
+            if (details) {
+                if (details.style.display === 'none' || details.style.display === '') {
+                    details.style.display = 'block';
+                } else {
+                    details.style.display = 'none';
+                }
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, initializing hover functionality...');
+            
+            // Keep details visible when hovering over the details container
+            const detailContainer = document.getElementById('details-container');
+            
+            if (detailContainer) {
+                detailContainer.addEventListener('mouseenter', function() {
+                    if (hoverTimeout) {
+                        clearTimeout(hoverTimeout);
+                    }
+                });
+                
+                detailContainer.addEventListener('mouseleave', function() {
+                    hideTaskDetails();
+                });
+            }
+
+            // Add smooth scrolling for special cards
+            document.querySelectorAll('.special-card').forEach(function(card) {
+                card.addEventListener('click', function() {
+                    setTimeout(function() {
+                        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 300);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
